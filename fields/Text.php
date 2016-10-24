@@ -1,5 +1,6 @@
 <?php
 namespace fgh151\fields\fields;
+use yii\helpers\BaseHtml;
 use yii\helpers\Html;
 
 /**
@@ -7,10 +8,12 @@ use yii\helpers\Html;
  */
 class Text extends BaseField
 {
+    protected $htmlType = 'text';
+
     /**
      * @inheritdoc
      */
-    protected $fieldSelectName = 'поле для ввода большого текста';
+    protected $fieldSelectName = 'поле для ввода текста';
 
     /**
      * @inheritdoc
@@ -18,10 +21,14 @@ class Text extends BaseField
     public function render()
     {
         $content = '';
-
         $label = Html::label($this->label, $this->attribute);
 
-        $textInput = Html::input('text', $this->attribute, 'testVal', ['class' => 'form-control ' . $this->class]);
+        $textInput = Html::input(
+            $this->htmlType,
+            $this->attribute,
+            $this->value,
+            ['class' => 'form-control ' . $this->class]
+        );
 
         if ($this->comment) {
             $content = Html::tag('div', ['class' => 'comment'], $this->comment);
