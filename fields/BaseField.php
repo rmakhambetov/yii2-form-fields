@@ -68,6 +68,7 @@ abstract class BaseField extends \yii\base\Component
 
         /** @var self $widget */
         $widget = new $class();
+        $widget->form = $form;
 
         $config = static::makeConfig([
             'form' => $form,
@@ -90,11 +91,11 @@ abstract class BaseField extends \yii\base\Component
      */
     protected static function resolveClassName($type)
     {
-        $class = ucfirst($type);
-        if (!file_exists(__DIR__ . DIRECTORY_SEPARATOR . $class . '.php')) {
+        $class = __NAMESPACE__ . '\\' . $type;
+        if (!class_exists($class)) {
             throw new \Exception("Поле для заявок на спецпроекты {$type} не допустимо");
         }
-        return __NAMESPACE__ . '\\' . $class;
+        return $class;
     }
 
     /**

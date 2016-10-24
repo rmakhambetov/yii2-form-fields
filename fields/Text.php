@@ -17,13 +17,16 @@ class Text extends BaseField
      */
     public function render()
     {
-        $content = Html::label($this->form, $this->attribute);
-        $content .= Html::label($this->form, $this->attribute, ['class' => 'custom-text']);
+        $content = '';
+
+        $label = Html::label($this->label, $this->attribute);
+
+        $textInput = Html::input('text', $this->attribute, 'testVal', ['class' => 'form-control ' . $this->class]);
 
         if ($this->comment) {
-            $content .= Html::tag('div', ['class' => 'comment'], $this->comment);
+            $content = Html::tag('div', ['class' => 'comment'], $this->comment);
         }
 
-        return Html::tag('div', ['class' => 'upload-item'], $content);
+        return Html::tag('div',$label . "\n" . $textInput . "\n" . $content, ['class' => 'upload-item']);
     }
 }
