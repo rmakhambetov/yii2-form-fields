@@ -16,6 +16,8 @@ class InputWidget extends YiiInputWidget
 
     public $options = [];
 
+    public $attribute;
+
     public function run()
     {
         $name = isset($this->options['name']) ? $this->options['name'] : BaseHtml::getInputName($this->model, $this->attribute);
@@ -31,7 +33,6 @@ class InputWidget extends YiiInputWidget
         $this->options['label'] = $label;
 
         $types = FieldTypes::getTypes();
-
         return BaseField::create($types[$this->type], $this->options)->render();
 
     }

@@ -9,7 +9,10 @@ class FieldTypes
         return [
             1 => 'text',
             2 => 'email',
-            3 => 'number'
+            3 => 'number',
+            4 => 'textarea',
+            5 => 'binaryCheckbox',
+            6 => 'checkboxList'
         ];
     }
 }
