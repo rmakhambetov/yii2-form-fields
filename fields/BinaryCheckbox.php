@@ -14,7 +14,7 @@ class BinaryCheckbox extends BaseField
         $textInput = BaseHtml::checkbox(
             $this->name,
             $this->value,
-            ['class' => 'form-control ' . $this->class]
+            $this->options
         );
 
 

@@ -6,7 +6,7 @@ use yii\helpers\ArrayHelper;
 
 abstract class BaseField extends \yii\base\Component
 {
-    public $options;
+    public $options = [];
 
     public $class;
 
@@ -41,6 +41,8 @@ abstract class BaseField extends \yii\base\Component
      */
     public $id;
 
+    public $style;
+
     /**
      * @var string Имя поля для выпадающего списка
      */
@@ -70,6 +72,7 @@ abstract class BaseField extends \yii\base\Component
 
         /** @var self $widget */
         $widget = new $class($properties);
+        $widget->generateProperties();
         return $widget;
     }
 
@@ -102,6 +105,38 @@ abstract class BaseField extends \yii\base\Component
      * Производит инициализацию виджета
      */
     public function init()
+    {
+
+    }
+
+    /**
+     *
+     */
+    public function generateProperties()
+    {
+        if (!$this->id) {
+            $this->id = $this->generateName();
+        }
+
+        $this->options = ArrayHelper::merge($this->options, [
+            'class' => 'form-control ' . $this->class,
+            'id' => $this->id,
+        ]);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function generateName()
+    {
+        return str_replace(['[]', '][', '[', ']', ' ', '.'], ['', '-', '-', '', '-', '-'], strtolower($this->name));
+    }
+
+    /**
+     * Register js handlers
+     * @param $view
+     */
+    public function registerAssets($view)
     {
 
     }

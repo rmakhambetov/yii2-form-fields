@@ -27,13 +27,16 @@ class InputWidget extends YiiInputWidget
             $options['id'] = BaseHtml::getInputId($this->model, $this->attribute);
         }
 
-
         $this->options['name'] = $name;
         $this->options['value'] = $value;
         $this->options['label'] = $label;
 
         $types = FieldTypes::getTypes();
-        return BaseField::create($types[$this->type], $this->options)->render();
+
+        $field = BaseField::create($types[$this->type], $this->options);
+        $field->registerAssets($this->getView());
+
+        return $field->render();
 
     }
 }

@@ -60,17 +60,18 @@ echo \fgh151\fields\InputWidget::widget([
 ```
 
 Available field types: 
-* text
-* email
-* number
-* textarea
-* binaryCheckbox
-* checkboxList
+* text - input type text
+* email - input type email
+* number - input type naumber
+* textarea - text area
+* binaryCheckbox - single check box (for example agree field)
+* checkboxList - list check boxes with same name
+* checkboxListOther - list check boxes with same name and input text field
 
 BinaryCheckbox - is binary field, for example agree field
 
 #### Field type examples
-##### chackboxList
+##### checkboxList and checkboxListOther
 
 ```php
 echo \fgh151\fields\InputWidget::widget([
