@@ -11,7 +11,10 @@ class FieldTypes
         4 => 'textarea',
         5 => 'binaryCheckbox',
         6 => 'checkboxList',
-        7 => 'checkboxListOther'
+        7 => 'checkboxListOther',
+        8 => 'binaryRadio',
+        9 => 'radioList',
+        10 => 'radioListOther'
     ];
 
     /**
