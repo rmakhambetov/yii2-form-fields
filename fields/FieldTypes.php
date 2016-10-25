@@ -10,7 +10,8 @@ class FieldTypes
         3 => 'number',
         4 => 'textarea',
         5 => 'binaryCheckbox',
-        6 => 'checkboxList'
+        6 => 'checkboxList',
+        7 => 'checkboxListOther'
     ];
 
     /**
