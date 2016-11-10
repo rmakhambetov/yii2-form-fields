@@ -14,7 +14,8 @@ class FieldTypes
         7 => 'checkboxListOther',
         8 => 'binaryRadio',
         9 => 'radioList',
-        10 => 'radioListOther'
+        10 => 'radioListOther',
+        11 => 'file'
     ];
 
     /**

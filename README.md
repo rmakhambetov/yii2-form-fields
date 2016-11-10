@@ -70,6 +70,7 @@ Available field types:
 * binaryRadio - single radio button
 * radioList - list of radio buttons
 * radioListOther - list of radio boxes with other text field
+* file - file input field
 
 BinaryCheckbox - is binary field, for example agree field
 

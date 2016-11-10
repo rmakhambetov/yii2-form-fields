@@ -1,23 +1,18 @@
 <?php
+
 namespace fgh151\fields\fields;
 
 use yii\helpers\Html;
 
-/**
- * Class Text Отображает text area
- */
-class Text extends BaseField
+class File extends BaseField
 {
-    protected $htmlType = 'text';
+    protected $htmlType = 'file';
 
     /**
      * @inheritdoc
      */
-    protected $fieldSelectName = 'поле для ввода текста';
+    protected $fieldSelectName = 'поле для загрузки файла';
 
-    /**
-     * @inheritdoc
-     */
     public function render()
     {
         $content = '';
