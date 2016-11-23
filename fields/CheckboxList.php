@@ -3,6 +3,7 @@ namespace fgh151\fields\fields;
 
 class CheckboxList extends BaseField
 {
+    public $htmlType = 'checkbox';
     public $variants;
     public function render()
     {

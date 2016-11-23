@@ -4,6 +4,7 @@ namespace fgh151\fields\fields;
 class RadioList extends BaseField
 {
     public $variants;
+    public $htmlType = 'radio';
     public function render()
     {
         foreach ($this->variants as $variant) {

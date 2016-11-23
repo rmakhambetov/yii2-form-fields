@@ -7,10 +7,10 @@ use yii\helpers\BaseHtml;
 
 class BinaryRadio extends BaseField
 {
+    public $htmlType = 'radio';
     public function render()
     {
         $content = '';
-        $label = Html::label($this->label, $this->attribute);
         $textInput = BaseHtml::radio(
             $this->name,
             $this->value,
@@ -22,6 +22,9 @@ class BinaryRadio extends BaseField
             $content = Html::tag('div', ['class' => 'comment'], $this->comment);
         }
 
-        return Html::tag('div',$label . "\n" . $textInput . "\n" . $content, ['class' => 'radio']);
+
+        $label = Html::tag('label', $textInput. "\n" .$this->label. "\n".$this->comment. "\n" . $content);
+
+        return Html::tag('div', $label, ['class' => 'radio']);
     }
 }

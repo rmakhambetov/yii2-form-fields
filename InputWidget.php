@@ -18,6 +18,8 @@ class InputWidget extends YiiInputWidget
 
     public $attribute;
 
+    public $otherText = '';
+
     public function run()
     {
         $name = isset($this->options['name']) ? $this->options['name'] : BaseHtml::getInputName($this->model, $this->attribute);

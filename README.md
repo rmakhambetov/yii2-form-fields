@@ -91,3 +91,20 @@ echo \fgh151\fields\InputWidget::widget([
     ]
 ]);
 ```
+for 'other' label you can pass custom text:
+
+```php
+echo \fgh151\fields\InputWidget::widget([
+    'model' => new \yii\base\DynamicModel(['FirstName']),
+    'attribute' => 'FirstName',
+    'type' => 6, //You can specify direct see \fgh151\fields\FieldTypes
+    'options' => [
+        'variants' => [
+            ['label' => 'var1', 'value' => 'var1'],
+            ['label' => 'var2', 'value' => 'var2'],
+            ['label' => 'var3', 'value' => 'var3'],
+        ]
+    ],
+    'otherText' => 'Другое'
+]);
+```

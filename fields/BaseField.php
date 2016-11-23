@@ -118,10 +118,17 @@ abstract class BaseField extends \yii\base\Component
             $this->id = $this->generateName();
         }
 
-        $this->options = ArrayHelper::merge($this->options, [
-            'class' => 'form-control ' . $this->class,
+        $options = [
             'id' => $this->id,
-        ]);
+        ];
+
+
+        if (!in_array($this->htmlType, ['radio', 'checkbox'])) {
+            $options['class'] = 'form-control ' . $this->class;
+        }
+
+
+        $this->options = ArrayHelper::merge($this->options, $options);
     }
 
     /**

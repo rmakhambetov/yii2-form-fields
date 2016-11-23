@@ -4,11 +4,13 @@ namespace fgh151\fields\fields;
 
 use yii\web\View;
 
-class CheckboxListOther extends BaseField
+class RadioListOther extends BaseField
 {
     public $variants;
+    public $htmlType = 'radio';
+    public $otherText = 'other';
 
-    private $_checkboxId;
+    private $_radioId;
     private $_textId;
 
     /**
@@ -16,8 +18,8 @@ class CheckboxListOther extends BaseField
      */
     public function init()
     {
-        $this->_checkboxId = $this->id.'-other';
-        $this->_textId = $this->_checkboxId.'-text';
+        $this->_radioId = $this->id.'-other';
+        $this->_textId = $this->_radioId.'-text';
         parent::init();
     }
 
@@ -28,7 +30,7 @@ class CheckboxListOther extends BaseField
     {
 
         foreach ($this->variants as $variant) {
-            echo BaseField::create('BinaryCheckbox', [
+            echo BaseField::create('BinaryRadio', [
                 'label' => $variant['label'],
                 'value' => $variant['value'],
                 'name' => $this->name,
@@ -36,17 +38,17 @@ class CheckboxListOther extends BaseField
             ])->render();
         }
 
-        $otherCheckbox = BaseField::create('BinaryCheckbox', [
-            'label' => 'other',
+        $otherCheckbox = BaseField::create('BinaryRadio', [
+            'label' => $this->otherText,
             'value' => false,
             'name' => $this->name,
-            'id' => $this->_checkboxId
+            'id' => $this->_radioId
         ]);
         echo $otherCheckbox->render();
 
         $otherText = BaseField::create('text', [
-            'label' => 'other',
-            'value' => 'other',
+            'label' => $this->otherText,
+            'value' => $this->otherText,
             'name' => $this->name,
             'id' => $this->_textId,
             'style' => 'display: none;'
@@ -61,7 +63,7 @@ class CheckboxListOther extends BaseField
     public function registerAssets($view)
     {
         $view->registerJs(
-            '$("#'.$this->_checkboxId.'").click(function(){$("#'.$this->_textId.'").parent().toggle()})'
+            '$("#'.$this->_radioId.'").click(function(){$("#'.$this->_textId.'").parent().toggle()})'
         );
         parent::registerAssets($view);
     }

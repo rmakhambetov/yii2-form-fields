@@ -7,6 +7,8 @@ use yii\web\View;
 class RadioListOther extends BaseField
 {
     public $variants;
+    public $htmlType = 'radio';
+    public $otherText = 'other';
 
     private $_radioId;
     private $_textId;
@@ -37,7 +39,7 @@ class RadioListOther extends BaseField
         }
 
         $otherCheckbox = BaseField::create('BinaryRadio', [
-            'label' => 'other',
+            'label' => $this->otherText,
             'value' => false,
             'name' => $this->name,
             'id' => $this->_radioId
@@ -45,8 +47,8 @@ class RadioListOther extends BaseField
         echo $otherCheckbox->render();
 
         $otherText = BaseField::create('text', [
-            'label' => 'other',
-            'value' => 'other',
+            'label' => $this->otherText,
+            'value' => $this->otherText,
             'name' => $this->name,
             'id' => $this->_textId,
             'style' => 'display: none;'
