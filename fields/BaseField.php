@@ -123,7 +123,7 @@ abstract class BaseField extends \yii\base\Component
         ];
 
 
-        if (!in_array($this->htmlType, ['radio', 'checkbox'])) {
+        if (!in_array($this->htmlType, ['radio', 'checkbox', 'file'])) {
             $options['class'] = 'form-control ' . $this->class;
         }
 
