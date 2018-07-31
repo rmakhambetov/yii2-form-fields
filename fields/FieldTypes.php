@@ -15,7 +15,8 @@ class FieldTypes
         8 => 'binaryRadio',
         9 => 'radioList',
         10 => 'radioListOther',
-        11 => 'file'
+        11 => 'file',
+        12 => 'select',
     ];
 
     /**
