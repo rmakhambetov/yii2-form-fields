@@ -6,7 +6,7 @@ use yii\helpers\Html;
 
 class Textarea extends BaseField
 {
-    protected $htmlType = 'textarea';
+    public $htmlType = 'textarea';
 
     public function render()
     {
