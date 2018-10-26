@@ -4,7 +4,7 @@ namespace fgh151\fields\fields;
 
 use yii\web\View;
 
-class RadioListOther extends BaseField
+class CheckboxListOther extends BaseField
 {
     public $variants;
     public $htmlType = 'radio';
