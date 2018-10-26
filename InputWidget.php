@@ -28,6 +28,10 @@ class InputWidget extends YiiInputWidget
         if (!array_key_exists('id', $this->options)) {
             $options['id'] = BaseHtml::getInputId($this->model, $this->attribute);
         }
+        
+        if (isset($this->model->attributeParams()[$this->attribute]['variants'])) {
+            $this->options['variants'] = $this->model->attributeParams()[$this->attribute]['variants'];
+        }
 
         $this->options['name'] = $name;
         $this->options['value'] = $value;
