@@ -43,6 +43,8 @@ abstract class BaseField extends \yii\base\Component
 
     public $style;
 
+    public $variants;
+
     /**
      * @var string Имя поля для выпадающего списка
      */
