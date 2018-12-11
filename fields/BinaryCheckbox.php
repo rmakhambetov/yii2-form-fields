@@ -33,6 +33,6 @@ class BinaryCheckbox extends BaseField
             $output = $textInput . Html::tag('label', "\n" .$this->label. "\n".$this->comment. "\n" . $content, $labelOptions);
         }
 
-        return Html::tag('div', $output, ['class' => $this->options['wrapperClass'] ?? 'checkbox']);
+        return Html::tag('div', $output, $this->options['wrapperOptions'] ?? ['class' => 'checkbox']);
     }
 }
