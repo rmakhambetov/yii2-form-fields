@@ -6,7 +6,7 @@ use yii\helpers\Html;
 
 class RadioList extends BaseField
 {
-    public $variants = [];
+    public $variants;
     public $htmlType = 'radio';
 
     public function render()
