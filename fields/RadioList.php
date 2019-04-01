@@ -19,7 +19,8 @@ class RadioList extends BaseField
             echo BaseField::create('BinaryRadio', [
                 'label' => $variant['label'],
                 'value' => $variant['value'],
-                'name' => $this->name
+                'name' => $this->name,
+                'options' => $variant['options'] ?? [],
             ])->render();
         }
     }

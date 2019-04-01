@@ -39,7 +39,8 @@ class RadioListOther extends BaseField
                 'label' => $variant['label'],
                 'value' => $variant['value'],
                 'name' => $this->name,
-                'id' => $this->options['id'].'-'.time()
+                'id' => $this->options['id'].'-'.time(),
+                'options' => $variant['options'] ?? [],
             ])->render();
         }
 
