@@ -17,6 +17,7 @@ class FieldTypes
         10 => 'radioListOther',
         11 => 'file',
         12 => 'select',
+        13 => 'date',
     ];
 
     /**
