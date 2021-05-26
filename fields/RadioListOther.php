@@ -3,6 +3,7 @@
 namespace fgh151\fields\fields;
 
 use yii\web\View;
+use yii\helpers\Html;
 
 class RadioListOther extends BaseField
 {
@@ -29,12 +30,17 @@ class RadioListOther extends BaseField
     public function render()
     {
 
+        if (!empty($this->label)) {
+            echo Html::label($this->label, $this->attribute);
+        }
+
         foreach ($this->variants as $variant) {
             echo BaseField::create('BinaryRadio', [
                 'label' => $variant['label'],
                 'value' => $variant['value'],
                 'name' => $this->name,
-                'id' => $this->options['id'].'-'.time()
+                'id' => $this->options['id'].'-'.time(),
+                'options' => $variant['options'] ?? [],
             ])->render();
         }
 

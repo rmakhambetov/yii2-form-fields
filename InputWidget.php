@@ -28,7 +28,7 @@ class InputWidget extends YiiInputWidget
         if (!array_key_exists('id', $this->options)) {
             $options['id'] = BaseHtml::getInputId($this->model, $this->attribute);
         }
-        
+
         if (isset($this->model->attributeParams()[$this->attribute]['variants'])) {
             $this->options['variants'] = $this->model->attributeParams()[$this->attribute]['variants'];
         }
@@ -39,7 +39,13 @@ class InputWidget extends YiiInputWidget
 
         $types = FieldTypes::getTypes();
 
-        $field = BaseField::create($types[$this->type], $this->options);
+        if (array_key_exists($this->type, $types)) {
+            $type = $types[$this->type];
+        } else {
+            $type = $types['text'];
+        }
+
+        $field = BaseField::create($type, $this->options);
         $field->registerAssets($this->getView());
 
         return $field->render();
